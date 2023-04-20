@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Gnb from './Gnb';
-function Footer () {
+function Top () {
 	return (
 		<div>
 			<div style={{ display: "flex"}}>
@@ -13,10 +13,10 @@ function Footer () {
 				</div>
 					<h1>Bookjeok Bookjeok</h1>
 			</div>
-					<Gnb />
+				<Gnb />
 		</div>
 	);
 
 }
 
-export default Footer;
+export default Top;
