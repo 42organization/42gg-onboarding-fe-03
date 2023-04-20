@@ -2,27 +2,27 @@
   {
     "path": "/",
     "name": "Home",
-    "accessLevel": "normal"
+    "accessLevel": 1
   },
 
   {
     "path": "/page-a",
     "name": "PageA",
-    "accessLevel": "normal"
+    "accessLevel": 1
   },
   {
     "path": "/page-b",
     "name": "PageB",
-    "accessLevel": "normal"
+    "accessLevel": 1
   },
   {
     "path": "/manager",
     "name": "Manager",
-    "accessLevel": "manager"
+    "accessLevel": 2
   },
   {
     "path": "/admin",
     "name": "Admin",
-    "accessLevel": "admin"
+    "accessLevel": 3
   }
 ]
