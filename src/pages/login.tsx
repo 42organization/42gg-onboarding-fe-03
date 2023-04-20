@@ -1,8 +1,14 @@
 import { useRouter } from 'next/router';
+import { login } from '@/utils/login';
 import style from '../styles/login.module.scss';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 import { loginResultType } from '@/types/loginType';
+
+type loginForm = {
+  username: string;
+  password: string;
+};
 
 const Login = () => {
   const router = useRouter();
@@ -10,14 +16,19 @@ const Login = () => {
   async function loginSubmitHandler(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
-    const username = formData.get('username');
-    const password = formData.get('password');
-    // const loginRes = await login(username, password);
-    // if (loginRes.res === 'success') {
-    //   router('/');
-    //   return;
-    // }
-    // toast(loginRes.data.msg, { type: 'error' });
+    if (formData.get('username') && formData.get('password')) {
+      const username = formData.get('username') as string;
+      const password = formData.get('password') as string;
+      const loginRes: loginResultType = await login(username, password);
+      if (loginRes.result === 'success') {
+        router.push('/');
+      } else {
+        toast(loginRes.msg);
+      }
+    } else {
+      console.log('Please enter your username and password');
+      toast('Please enter your username and password');
+    }
     return;
   }
 
