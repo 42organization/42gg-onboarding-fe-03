@@ -6,3 +6,8 @@ export interface userType {
   token: string;
   role: AccessType;
 }
+
+export interface userResponse {
+  username: string;
+  role: AccessType;
+}
