@@ -1,14 +1,11 @@
+import { ReactElement } from 'react';
 import { useRouter } from 'next/router';
 import { login } from '@/utils/login';
 import style from '../styles/login.module.scss';
 import { FaUser, FaLock } from 'react-icons/fa';
 import { toast } from 'react-hot-toast';
 import { loginResultType } from '@/types/loginType';
-
-type loginForm = {
-  username: string;
-  password: string;
-};
+import PublicLayout from '@/components/layouts/PublicLayout';
 
 const Login = () => {
   const router = useRouter();
@@ -48,6 +45,10 @@ const Login = () => {
       </form>
     </div>
   );
+};
+
+Login.getLayout = function getLayout(page: ReactElement) {
+  return <PublicLayout>{page}</PublicLayout>;
 };
 
 export default Login;
