@@ -15,7 +15,7 @@ export default function DefaultLayout(props: {
   const { user, loading, error } = useUser();
 
   useEffect(() => {
-    if (error || !user) {
+    if (error) {
       toast('로그인이 필요한 페이지입니다.');
     }
     if (user && user.role < props.auth) {

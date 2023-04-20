@@ -12,16 +12,18 @@ export function useUser() {
 
   useEffect(() => {
     if (user) {
+      setLoading(false);
       return;
     }
     const getUser = async () => {
       try {
         const { data } = await axios.get<userResponse>('/api/user');
         setUser(data);
+        setLoading(false);
       } catch (error) {
         setError(true);
+        setLoading(false);
       }
-      setLoading(false);
     };
     getUser();
   }, [user, setUser]);
