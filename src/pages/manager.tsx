@@ -1,5 +1,6 @@
 import type { ReactElement } from 'react';
 import { NextPageWithLayout } from './_app';
+import { AccessType } from '@/types/accessType';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 
 const Manager: NextPageWithLayout = () => {
@@ -13,7 +14,7 @@ const Manager: NextPageWithLayout = () => {
 };
 
 Manager.getLayout = function getLayout(page: ReactElement) {
-  return <DefaultLayout>{page}</DefaultLayout>;
+  return <DefaultLayout auth={2 as AccessType}>{page}</DefaultLayout>;
 };
 
 export default Manager;

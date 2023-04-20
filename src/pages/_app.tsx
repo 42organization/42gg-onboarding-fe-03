@@ -19,14 +19,13 @@ export default function AppWithLayout({
   Component,
   pageProps,
 }: AppPropsWithLayout) {
-  // getLayout 함수가 존재하면 실행
-  if (Component.getLayout) {
-    return Component.getLayout(<Component {...pageProps} />);
-  }
-  // 없으면 그대로 레이아웃 없이 반환
   return (
     <RecoilRoot>
-      <Component {...pageProps} />
+      {Component.getLayout ? (
+        Component.getLayout(<Component {...pageProps} />)
+      ) : (
+        <Component {...pageProps} />
+      )}
     </RecoilRoot>
   );
 }
