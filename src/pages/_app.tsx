@@ -4,6 +4,7 @@ import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
 import { RecoilRoot } from 'recoil';
+import { Toaster } from 'react-hot-toast';
 
 // NextPage 타입에 getLayout 함수 속성을 추가
 export type NextPageWithLayout = NextPage & {
@@ -21,6 +22,7 @@ export default function AppWithLayout({
 }: AppPropsWithLayout) {
   return (
     <RecoilRoot>
+      <Toaster />
       {Component.getLayout ? (
         Component.getLayout(<Component {...pageProps} />)
       ) : (
