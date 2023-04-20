@@ -3,6 +3,7 @@ import '@/styles/globals.scss';
 import type { AppProps } from 'next/app';
 import type { ReactElement, ReactNode } from 'react';
 import type { NextPage } from 'next';
+import { RecoilRoot } from 'recoil';
 
 // NextPage 타입에 getLayout 함수 속성을 추가
 export type NextPageWithLayout = NextPage & {
@@ -14,10 +15,6 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
-if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
-  require('../mocks');
-}
-
 export default function AppWithLayout({
   Component,
   pageProps,
@@ -27,5 +24,9 @@ export default function AppWithLayout({
     return Component.getLayout(<Component {...pageProps} />);
   }
   // 없으면 그대로 레이아웃 없이 반환
-  return <Component {...pageProps} />;
+  return (
+    <RecoilRoot>
+      <Component {...pageProps} />
+    </RecoilRoot>
+  );
 }
