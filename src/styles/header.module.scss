@@ -1,0 +1,25 @@
+@import './common.scss';
+
+.wrapper {
+  @include flex-space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $header-height;
+  padding: 0.5rem 1rem;
+  border-bottom: $section-border-weight solid $dark-blue;
+  background-color: $smoke-white;
+}
+
+.title {
+  margin: 0;
+  padding: 0.5rem 0;
+  color: $smoke-blue;
+  font-size: $title-font-size;
+}
+
+.button {
+  @include clickable-text;
+  font-size: $button-font-size;
+}

@@ -1,0 +1,32 @@
+@import './common.scss';
+
+.generalWrapper {
+  display: flex;
+  height: 100vh;
+}
+
+.bodyWrapper {
+  @include flex-center;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: $body-width;
+  height: $body-height;
+  color: $smoke-blue;
+  font-size: $middle-font-size;
+  text-align: center;
+  p {
+    margin: 0;
+  }
+}
+
+.publicWrapper {
+  @include flex-center;
+  width: 100vw;
+  font-size: $middle-font-size;
+  color: $smoke-blue;
+  text-align: center;
+  p {
+    margin: 0;
+  }
+}
