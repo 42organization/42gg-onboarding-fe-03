@@ -13,6 +13,10 @@ type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
 };
 
+if (process.env.NEXT_PUBLIC_API_MOCKING === 'enabled') {
+  require('../mocks');
+}
+
 export default function AppWithLayout({
   Component,
   pageProps,
