@@ -1,12 +1,19 @@
 import axios from 'axios';
-import { loginResultType } from '@/types/loginType';
+import { loginResultType, loginType } from '@/types/loginType';
 
 export const login = async (username: string, password: string) => {
-  const res = await axios.post<loginResultType>('/api/login', {
-    username,
-    password,
-  });
-  return res.data;
+  try {
+    const res = await axios.post<loginResultType>('/api/login', {
+      username,
+      password,
+    });
+    return res.data;
+  } catch (e) {
+    return {
+      result: 'fail' as loginType,
+      msg: '아이디 또는 비밀번호가 일치하지 않습니다.',
+    };
+  }
 };
 
 export const logout = async () => {
