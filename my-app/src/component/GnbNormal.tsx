@@ -1,19 +1,13 @@
 import { Menu } from "semantic-ui-react";
 import {useRouter} from "next/router";
 import { MouseEvent } from "react";
-
-interface datastring {
-  name: string | undefined;
-  active: boolean;
-  onClick: () => void;
-}
-
-interface MenuItemProps {
-  datastring : string[];
-}
+import { useRecoilState } from "recoil";
+import authAtom from "./authatom";
 
 function Gnb(){
   const router = useRouter();
+  const [auth, setAuth] = useRecoilState(authAtom);
+
   let activeItem;
 
   if (router.pathname === '/'){
@@ -36,7 +30,7 @@ function Gnb(){
     } else if(name === 'profile'){
       router.push('/profile');
     } else if(name === 'logout'){
-      console.log(localStorage.setItem('auth', JSON.stringify("")));
+      setAuth("");
 		  localStorage.setItem('auth', JSON.stringify(""));
       router.push('/login');
     }

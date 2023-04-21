@@ -2,13 +2,15 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Gnb from './Gnb';
 import GnbNormal from './GnbNormal'
+import SideBar from "./SideBar";
+
 
 function Top () {
 	const [auth, setAuth] = useState('');
 
 	useEffect(() => {
-	const data = JSON.parse(localStorage.getItem('auth') || '{}');
-	setAuth(data);
+		const data = JSON.parse(localStorage.getItem('auth') || '{}');
+		setAuth(data);
 	}, []);
 
 	return (

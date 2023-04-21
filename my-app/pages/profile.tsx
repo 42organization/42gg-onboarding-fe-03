@@ -1,10 +1,19 @@
 import React from "react";
 import {useRouter} from 'next/router';
+import {useEffect} from 'react';
+import useRequireAuth from "@/src/hooks/useRequireAuth";
 
 //json -> cookie로 변경
 function Profile() {
 	const router = useRouter();
 	let authFromLocalStorage, email, password, name;
+
+	function MyProtectedComponent() {
+		const auth = useRequireAuth();
+		console.log(auth);
+	}
+
+	MyProtectedComponent();
 
 	if (typeof window !== 'undefined') {
 		authFromLocalStorage= JSON.parse(localStorage.getItem('auth')  || '{}');

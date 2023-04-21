@@ -1,11 +1,8 @@
 import React from "react";
-import Link from "next/link";
 import styles from "../scss/style.module.scss";
-import LogoutButton from './LogoutButton';
 import Button from '@mui/material/Button';
 import { MouseEvent } from "react";
 import {useRouter} from "next/router";
-import { useEffect } from "react";
 
 function Sidebar() {
 	const router = useRouter();
@@ -36,34 +33,22 @@ function Sidebar() {
 		router.push('/profile');
 		} else if(name === 'logout'){
 			//setAuth("");
-			localStorage.setItem('auth', JSON.stringify(""));
+			//localStorage.setItem('auth', JSON.stringify(""));
 			router.push('/login');
 		}
 	}
 	return (
 		<div className={styles.SidebarWrep}>
 			<nav>
-					<Button style={{color: '#d0936d'}} onClick={() => handleItemClick(null, {name: 'about'})} >About</Button>
-					<Button style={{color: '#d0936d'}} onClick={() => handleItemClick(null, {name: 'home'})}>Menu</Button>
-					<Button style={{color: '#d0936d'}} onClick={() => handleItemClick(null, {name: 'profile'})}>Profile</Button>
-					<Button style={{background: '#fff2e5' ,color: '#d0936d', borderColor: '#d0936d'}} 
-							variant="outlined" 
-							onClick={() => handleItemClick(null, {name: 'logout'})}>Logout</Button>
+			<Button style={{color: '#d0936d'}} onClick={() => handleItemClick(null, {name: 'about'})} >About</Button>
+			<Button style={{color: '#d0936d'}} onClick={() => handleItemClick(null, {name: 'home'})}>Menu</Button>
+			<Button style={{color: '#d0936d'}} onClick={() => handleItemClick(null, {name: 'profile'})}>Profile</Button>
+			<Button style={{background: '#fff2e5' ,color: '#d0936d', borderColor: '#d0936d'}} 
+					variant="outlined" 
+					onClick={() => handleItemClick(null, {name: 'logout'})}>Logout</Button>
 			</nav>
 		</div>
 	);
-	/* return (
-		<div className={styles.SidebarWrep}>
-			<nav>
-					<Button style={{color: '#d0936d'}}>About</Button>
-					<Button style={{color: '#d0936d'}} >Menu</Button>
-					<Button style={{color: '#d0936d'}} >Profile</Button>
-					<Button style={{background: '#fff2e5' ,color: '#d0936d', borderColor: '#d0936d'}} 
-							variant="outlined" 
-							>Logout</Button>
-			</nav>
-		</div>
-	); */
 }
 
 export default Sidebar;

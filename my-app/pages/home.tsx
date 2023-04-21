@@ -3,9 +3,6 @@ import Axios from 'axios';
 import { useEffect, useState } from "react";
 import ItemList from "../src/component/ItemList";
 import {Loader} from 'semantic-ui-react';
-//import styles from '@/styles/Home.module.css'
-import Footer from "../src/component/Footer";
-import Top from "../src/component/Top";
 
 function Home() {
 	const [list, setList] = useState([]);

@@ -7,8 +7,19 @@ import {Loader} from 'semantic-ui-react';
 import { useRouter } from 'next/router';
 import Footer from "../src/component/Footer";
 import Top from "../src/component/Top";
+import { useRecoilState } from "recoil";
+import authAtom from "../src/component/authatom";
+import useRequireAuth from "../src/hooks/useRequireAuth";
 
 function Index() {
+	const router = useRouter();
+	//const [auth, setAuth] = useRecoilState(authAtom);
+	function MyProtectedComponent() {
+		const auth = useRequireAuth();
+		console.log(auth);
+	}
+
+	MyProtectedComponent();
 	return (
 				<div>
 					{/* <Top /> */}

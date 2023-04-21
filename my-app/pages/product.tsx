@@ -1,13 +1,19 @@
 //import Head from 'next/head'
 import Axios from 'axios';
 import { useEffect, useState } from "react";
+import {useRouter} from 'next/router';
 import ItemList from "../src/component/ItemList";
 import {Loader} from 'semantic-ui-react';
 //import styles from '@/styles/Home.module.css'
+import { useRecoilState } from "recoil";
+import authAtom from "../src/component/authatom";
+import useRequireAuth from '@/src/hooks/useRequireAuth';
 
 function Product() {
 	const [list, setList] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
+	const router = useRouter();
+	const [auth, setAuth] = useRecoilState(authAtom);
 
 	const API_URL =
 	"http://makeup-api.herokuapp.com/api/v1/products.json?brand=maybelline";
@@ -19,6 +25,13 @@ function Product() {
 			setIsLoading(false);
 		});
 	}
+
+	function MyProtectedComponent() {
+		const auth = useRequireAuth();
+		console.log(auth);
+	}
+
+	MyProtectedComponent();
 
 	useEffect(() => {
 		getData();
@@ -42,7 +55,7 @@ function Product() {
 							<hr />
 							<ItemList list={list.slice(9)}/>
 						</>
-					)};
+					)}
 				</div>
 	);
 }
