@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import navigationData from '@/data/navigationData.json';
 import { AccessType } from '@/types/accessType';
 import styles from '@/styles/sidebar.module.scss';
+import { useUser } from '@/utils/hooks/useUser';
 
 type navigationItem = {
   path: string;
@@ -17,17 +18,17 @@ type userType = {
 };
 
 export default function SideBar() {
-  // const { user } = useUser();
+  const { user } = useUser();
   const router = useRouter();
   const currentPath = router.pathname;
-  const user: userType = {
-    accessLevel: 3,
-  };
+
+  if (!user) return null; // ?
+
   return (
     <nav className={styles.wrapper}>
       <ul className={styles.ulWrapper}>
         {navigationData
-          .filter((item) => item.accessLevel <= user.accessLevel)
+          .filter((item) => item.accessLevel <= user.role)
           .map((item) => (
             <li key={item.name}>
               <Link
