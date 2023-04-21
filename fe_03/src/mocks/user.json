@@ -1,0 +1,26 @@
+{
+    "normal": [{
+        "id": "normal",
+        "pw": "normal"
+    },
+    {
+        "id": "normal1",
+        "pw": "normal1"
+    }],
+    "manager":[{
+        "id": "manager",
+        "pw": "manager"
+    },
+    {
+        "id": "manager1",
+        "pw": "manager1"
+    }],
+    "admin":[{
+        "id": "admin",
+        "pw": "admin"
+    },
+    {
+        "id": "admin1",
+        "pw": "admin1"
+    }]
+}
