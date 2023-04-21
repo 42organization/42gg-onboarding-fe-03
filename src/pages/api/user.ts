@@ -16,7 +16,9 @@ export default function handler(
       username: user.username,
       role: user.role as AccessType,
     });
+    res.end();
   } else {
     res.status(401);
+    res.end();
   }
 }
