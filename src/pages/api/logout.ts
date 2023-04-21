@@ -10,10 +10,12 @@ export default function hander(req: NextApiRequest, res: NextApiResponse) {
   if (user) {
     res.setHeader(
       'Set-Cookie',
-      `token=; path=/; expires={new Date().toGMTString()};`
+      `token=deleted; path=/; expires=${new Date().toUTCString()}`
     );
     res.status(200);
+    res.end(); // ?
   } else {
     res.status(401);
+    res.end(); // ?
   }
 }
