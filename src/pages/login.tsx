@@ -23,7 +23,6 @@ const Login = () => {
         toast(loginRes.msg);
       }
     } else {
-      console.log('Please enter your username and password');
       toast('Please enter your username and password');
     }
     return;
