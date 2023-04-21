@@ -4,6 +4,8 @@ import { useEffect, useState } from "react";
 import ItemList from "../src/component/ItemList";
 import {Loader} from 'semantic-ui-react';
 //import styles from '@/styles/Home.module.css'
+import Footer from "../src/component/Footer";
+import Top from "../src/component/Top";
 
 function Home() {
 	const [list, setList] = useState([]);
@@ -26,6 +28,7 @@ function Home() {
 	
 	return (
 				<div>
+					{/* <Top /> */}
 					<Head>
 						<title>HOME | Bookjeok Bookjeok</title>
 						<meta name="description" content="홈입니다."></meta>
@@ -47,6 +50,7 @@ function Home() {
 							<ItemList list={list.slice(9)}/>
 						</>
 					)};
+					{/* <Footer/> */}
 				</div>
 	);
 }

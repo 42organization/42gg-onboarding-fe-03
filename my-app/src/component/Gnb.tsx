@@ -1,5 +1,5 @@
 import { Menu } from "semantic-ui-react";
-import {useRouter} from "next/Router";
+import {useRouter} from "next/router";
 import { MouseEvent } from "react";
 
 interface datastring {
@@ -24,10 +24,11 @@ function Gnb(){
     activeItem = "product";
   } else if (router.pathname === "/users") {
     activeItem = "users";
+  } else if (router.pathname === "/login") {
+    activeItem = "login";
   }
   
   function handleItemClick(e: MouseEvent<HTMLAnchorElement>, {name} : {name?: string}){
-    console.log(e);
     if(name === 'home'){
       router.push('/');
     } else if(name === 'about'){
@@ -38,6 +39,11 @@ function Gnb(){
       router.push('/users');
     } else if(name === 'profile'){
       router.push('/profile');
+    } else if(name === 'logout'){
+      //setAuth("");
+      localStorage.setItem('auth', JSON.stringify(""));
+      console.log(localStorage.setItem('auth', JSON.stringify("")));
+      router.push('/login');
     }
   }
 	return (
@@ -65,6 +71,11 @@ function Gnb(){
         <Menu.Item
           name='profile'
           active={activeItem === 'profile'}
+          onClick={handleItemClick}
+        />
+        <Menu.Item
+          name='logout'
+          active={activeItem === 'logout'}
           onClick={handleItemClick}
         />
       </Menu>

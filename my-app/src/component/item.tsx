@@ -17,7 +17,7 @@ interface Product {
 }
 
 interface ItemListProps {
-	item: Array<Product>;
+	item: Product;
 }
 
 function Item({item} : ItemListProps) {

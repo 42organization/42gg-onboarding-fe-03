@@ -1,5 +1,5 @@
 function Footer () {
-	return <div>sangmipa</div>;
+	return <div><hr/>sangmipa</div>;
 }
 
 export default Footer;

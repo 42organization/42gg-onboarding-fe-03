@@ -1,6 +1,16 @@
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Gnb from './Gnb';
+import GnbNormal from './GnbNormal'
+
 function Top () {
+	const [auth, setAuth] = useState('');
+
+	useEffect(() => {
+	const data = JSON.parse(localStorage.getItem('auth') || '{}');
+	setAuth(data);
+	}, []);
+
 	return (
 		<div>
 			<div style={{ display: "flex"}}>
@@ -13,7 +23,7 @@ function Top () {
 				</div>
 					<h1>Bookjeok Bookjeok</h1>
 			</div>
-				<Gnb />
+				{auth === '3' ? <GnbNormal /> : <Gnb />}
 		</div>
 	);
 
