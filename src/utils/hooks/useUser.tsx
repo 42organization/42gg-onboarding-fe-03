@@ -17,7 +17,9 @@ export function useUser() {
     }
     const getUser = async () => {
       try {
-        const { data } = await axios.get<userResponse>('/api/user');
+        const { data } = await axios.get<userResponse>('/api/user', {
+          withCredentials: true,
+        });
         setUser(data);
         setLoading(false);
       } catch (error) {

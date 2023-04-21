@@ -18,7 +18,7 @@ export const login = async (username: string, password: string) => {
 
 export const logout = async () => {
   try {
-    await axios.post('/api/logout');
+    await axios.post('/api/logout', { withCredentials: true });
   } catch (e) {
     console.error(e);
   }

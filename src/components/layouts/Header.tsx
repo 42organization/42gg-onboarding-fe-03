@@ -6,8 +6,8 @@ import styles from '@/styles/header.module.scss';
 export default function Header() {
   const { resetUser } = useUser();
   const router = useRouter();
-  const handleLogout = () => {
-    logout();
+  const handleLogout = async () => {
+    await logout();
     resetUser();
     router.push('/login');
   };
