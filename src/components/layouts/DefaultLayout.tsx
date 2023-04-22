@@ -27,7 +27,7 @@ export default function DefaultLayout(props: {
   const { user, loading, error, resetUser } = useUser();
 
   useEffect(() => {
-    if (loading || !user) {
+    if (loading) {
       return;
     }
     if (error) {
@@ -57,7 +57,7 @@ export default function DefaultLayout(props: {
   const handleLogout = async () => {
     await logout();
     resetUser();
-    router.push('/login');
+    // router.push('/login');
   };
 
   return (
