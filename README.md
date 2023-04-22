@@ -1,25 +1,61 @@
 # 42gg 프론트엔드 온보딩 3단계
 
-## 공통 조건
+## 실행 방법
 
-- 온보딩 프로젝트는 개인 계정으로 fork하여 진행하고 PR로 제출합니다.
-- git / github / code 컨벤션은 42gg notion에 있는 자료를 적극 반영합니다.
-- 기본 기능 외 추가 기능, 디자인 구현은 자유입니다.
-- 최종 제출품에는 README 작성이 되있어야 합니다.([예시](https://github.com/42organization/42gg.client/blob/main/README.md))
+```
+yarn install
+yarn dev
+```
 
-## login + 유저 권한별 routing 후 해당 유저의 todo list 구현 (1, 2단계 융합)
+## 구현된 기능
 
-- (필수) Next.js, Recoil, SCSS, Typescript
-- (필수) DON'T USE ANYSCRIPT, tslint 적용
-- (필수) custom hook 1개 이상 사용
-- (필수) axios
-- (선택) msw, react-query / SWR, pagination
-- (선택) 컴포넌트 재사용 고려
-- 세부 기능은 1단계와 2단계의 기능을 융합한 것입니다.
-- routing시 todo list 유지 안되도 됨 (mock API 한계)
+### 유저 정보
 
-## 참고
+유저 정보는 `src/data/userData.json`에서 관리합니다.
 
-- 유저 정보, todo list 정보는 1, 2단계에서 사용한 mock API 방식을 사용하셔도 되고 그 외 좋은 방법으로 구현하셔도 됩니다.
-- 1, 2단계에서 구현한 코드를 활용하셔도 됩니다.
-- 궁금한 사항은 issue에 등록해주세요.
+```
+username: 'red',
+password: 'qwe123!@#',
+role: Admin
+---
+username: 'blue',
+password: 'qwe123!@#',
+role: Manager
+---
+username: 'green',
+password: 'qwe123!@#',
+role: Normal
+```
+
+### 로그인, 로그아웃, 유저 정보
+
+`src/pages/api`
+
+- 로그인: `POST /login`
+- 로그아웃: `POST /logout`
+- 유저 정보: `GET /user`
+
+### 유저 권한별 routing page
+
+권한은 각각 Public, Normal, Manager, Admin으로 구분합니다.
+
+- Public: 로그인하지 않은 유저도 접근 가능한 페이지 (Login 페이지)
+- Normal: 로그인한 유저만 접근 가능한 페이지 (Normal 페이지)
+- Manager: Manager, Admin 권한을 가진 유저만 접근 가능한 페이지 (Manager 페이지)
+- Admin: Admin 권한을 가진 유저만 접근 가능한 페이지 (Admin 페이지)
+
+사이드 네비게이션바에는 현재 로그인한 유저가 접근할 수 있는 페이지만 나타납니다.
+
+## 폴더 구조
+
+```
+.
+├── public
+└── src
+    ├── components
+    ├── data    : 정적 데이터 (유저 정보,  사이드 네비게이션바 아이템)
+    ├── pages
+    ├── styles
+    ├── types
+    └── utils   : 유틸 함수 (atom, hook, login/logout)
+```
