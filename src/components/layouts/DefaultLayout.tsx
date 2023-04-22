@@ -27,15 +27,20 @@ export default function DefaultLayout(props: {
   const { user, loading, error, resetUser } = useUser();
 
   useEffect(() => {
+    if (loading || !user) {
+      return;
+    }
     if (error) {
       toast('로그인이 필요한 페이지입니다.');
       router.push('/login');
+      return;
     }
     if (user && user.role < props.auth) {
       toast('권한이 없는 페이지입니다.');
       router.push('/');
+      return;
     }
-  }, [error, user, props.auth, router]);
+  }, [error, user, props.auth, router, loading]);
 
   if (error) {
     return null;
