@@ -1,0 +1,28 @@
+[
+  {
+    "path": "/",
+    "name": "Home",
+    "accessLevel": 1
+  },
+
+  {
+    "path": "/page-a",
+    "name": "PageA",
+    "accessLevel": 1
+  },
+  {
+    "path": "/page-b",
+    "name": "PageB",
+    "accessLevel": 1
+  },
+  {
+    "path": "/manager",
+    "name": "Manager",
+    "accessLevel": 2
+  },
+  {
+    "path": "/admin",
+    "name": "Admin",
+    "accessLevel": 3
+  }
+]

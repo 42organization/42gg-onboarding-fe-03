@@ -1,0 +1,38 @@
+@import './common.scss';
+
+.wrapper {
+  @include flex-column;
+}
+
+.title {
+  color: $smoke-red;
+  border-bottom: $section-border-weight solid $dark-blue;
+}
+
+.formWrapper {
+  @include flex-column;
+  width: 340px;
+  button {
+    @include clickable-box;
+    height: 3rem;
+    border-radius: $radius;
+    font-size: $button-font-size;
+  }
+  .inputWrapper {
+    @include flex-space-between;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: $radius;
+    background-color: $white;
+    input {
+      width: 100%;
+      height: 2rem;
+      margin-left: 0.5rem;
+      border: none;
+      font-size: $default-font-size;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+}

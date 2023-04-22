@@ -1,0 +1,26 @@
+@import './common.scss';
+
+.wrapper {
+  @include flex-column;
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  width: $sidebar-width;
+  height: $body-height;
+  border-right: $section-border-weight solid $dark-blue;
+}
+
+.ulWrapper {
+  list-style: none;
+  font-size: $middle-font-size;
+  li {
+    padding: 0.5rem;
+    .link {
+      @include clickable-text;
+    }
+    .currentLink {
+      @include clickable-text;
+      color: $dark-blue;
+    }
+  }
+}
