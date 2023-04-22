@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
 import { userState } from '../atoms/user';
 import { userResponse } from '@/types/userType';
 
@@ -22,7 +22,10 @@ export function useUser() {
         });
         setUser(data);
         setLoading(false);
-      } catch (error) {
+      } catch (error: AxiosError | unknown) {
+        if (!axios.isAxiosError(error)) {
+          console.log(error);
+        }
         setError(true);
         setLoading(false);
       }
