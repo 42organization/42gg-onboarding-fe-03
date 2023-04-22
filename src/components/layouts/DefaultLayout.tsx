@@ -29,14 +29,15 @@ export default function DefaultLayout(props: {
   useEffect(() => {
     if (error) {
       toast('로그인이 필요한 페이지입니다.');
+      router.push('/login');
     }
     if (user && user.role < props.auth) {
       toast('권한이 없는 페이지입니다.');
+      router.push('/');
     }
-  }, [error, user, props.auth]);
+  }, [error, user, props.auth, router]);
 
   if (error) {
-    router.push('/login');
     return null;
   }
 
@@ -45,7 +46,6 @@ export default function DefaultLayout(props: {
   }
 
   if (user && user.role < props.auth) {
-    router.push('/');
     return null;
   }
 
