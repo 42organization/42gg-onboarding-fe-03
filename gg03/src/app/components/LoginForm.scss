@@ -1,0 +1,46 @@
+$neon-blue: #7aedfc;
+$button-color: hsl(207, 58%, 17%);
+$input-color: #161d227d;
+
+.Input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .error-message {
+    color: $neon-blue;
+    font-size: small;
+    margin-bottom: 15px;
+  }
+
+  .input-box {
+    background-color: $input-color;
+    border: solid 1px $neon-blue;
+    width: 300px;
+    height: 35px;
+    margin-bottom: 15px;
+    text-indent: 1vh;
+    font-size: medium;
+    color: white;
+  }
+
+  input {
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+button {
+  width: 280px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  font-weight: 750;
+  font-size: large;
+  color: $neon-blue;
+  background-color: $button-color;
+  border: solid 1px $neon-blue;
+  border-radius: 15px;
+  margin-top: 10px;
+}
