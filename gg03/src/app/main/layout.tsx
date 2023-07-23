@@ -1,6 +1,5 @@
-import React from 'react';
-import '../components/MainNavigation';
-import MainNavigation from '../components/MainNavigation';
+import './MainNavigation';
+import MainNavigation from './MainNavigation';
 
 function MainLayout({
   children, // will be a page or nested layout
