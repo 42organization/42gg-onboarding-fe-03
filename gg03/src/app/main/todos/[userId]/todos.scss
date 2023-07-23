@@ -1,0 +1,82 @@
+// import {faSquareCheck} from '@fortawesome/free-solid-svg-icons';
+
+$neon-blue: #7aedfc;
+$light-grey: #b5c6df;
+$button-color: hsl(207, 58%, 17%);
+$input-color: #161d227d;
+
+.todo-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  color: $neon-blue;
+  font-size: 2rem;
+
+  input {
+    background-color: $input-color;
+    border: solid 1px $neon-blue;
+    width: 300px;
+    height: 35px;
+    text-indent: 1vh;
+    font-size: medium;
+    color: white;
+    &:focus {
+      outline: none;
+    }
+  }
+  button {
+    height: 39px;
+    width: 35px;
+    color: $neon-blue;
+    background-color: $button-color;
+    border: solid 1px $neon-blue;
+    font-size: large;
+    cursor: pointer;
+  }
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  padding-left: 1rem;
+
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-bottom: solid 1px $neon-blue;
+    width: 300px;
+    height: 35px;
+    margin: 1rem;
+    font-size: medium;
+    color: white;
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+  }
+
+  .checked {
+    cursor: pointer;
+    text-decoration: line-through;
+  }
+  .non-checked {
+    cursor: pointer;
+  }
+
+  .icon-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 3rem;
+    .icon {
+      color: $light-grey;
+      cursor: pointer;
+      &:hover {
+        color: $neon-blue;
+      }
+    }
+  }
+}
