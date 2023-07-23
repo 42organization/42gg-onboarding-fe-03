@@ -1,7 +1,7 @@
 import React, { use, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { useRouter } from 'next/router';
-import LoginForm from '../components/LoginForm';
+import LoginForm from './LoginForm';
 import loginState from '../loginAtom';
 import '../styles.scss';
 
