@@ -1,7 +1,7 @@
 'use client';
 import './globals.scss';
 import { RecoilRoot } from 'recoil';
-import styles from './page.module.scss';
+import { SessionProvider } from 'next-auth/react';
 
 export default function RootLayout({
   children,
@@ -10,9 +10,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang='ko'>
-      <RecoilRoot>
-        <body>{children}</body>
-      </RecoilRoot>
+      <body>
+        <RecoilRoot>
+          <SessionProvider>{children}</SessionProvider>
+        </RecoilRoot>
+      </body>
     </html>
   );
 }

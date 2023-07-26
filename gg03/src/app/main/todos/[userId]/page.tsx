@@ -1,18 +1,20 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
+import { useSession } from 'next-auth/react';
+import { FaTrash, FaPencil } from 'react-icons/fa6';
 import './todos.scss';
 import ToDo from '../../../types/ToDo';
-import { FaTrash, FaPencil } from 'react-icons/fa6';
 
 function ToDoList({ params }: { params: { userId: string } }) {
   const [todos, setTodos] = useState<ToDo[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
-  //   const [editTodoId, setEditTodoId] = useState<number | null>(null);
-  //   const editRef = useRef<HTMLInputElement>(null);
+  const router = useRouter();
+  const { data: session, status } = useSession();
 
   useEffect(() => {
     inputRef.current?.focus();
-  }, []);
+  });
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -58,7 +60,7 @@ function ToDoList({ params }: { params: { userId: string } }) {
       </form>
       <ul className='todo-list'>
         {todos.map((todo) => (
-          <div className='todo-item'>
+          <div className='todo-item' key={todo.id}>
             <li
               key={todo.id}
               onClick={() => checkTodo(todo.id)}
@@ -67,7 +69,6 @@ function ToDoList({ params }: { params: { userId: string } }) {
               {todo.text}
             </li>
             <div className='icon-box'>
-              {/* <FaPencil onClick={() => editTodo(todo.id)} className='icon' /> */}
               <FaTrash onClick={() => deleteTodo(todo.id)} className='icon' />
             </div>
           </div>
