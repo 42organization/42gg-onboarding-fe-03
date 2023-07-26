@@ -2,15 +2,18 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useSession } from 'next-auth/react';
-import { FaTrash, FaPencil } from 'react-icons/fa6';
+import { FaTrash } from 'react-icons/fa6';
 import './todos.scss';
+import { useRecoilState } from 'recoil';
 import ToDo from '../../../types/ToDo';
+import { toDoState } from '@/app/atoms/todoAtom';
 
 function ToDoList({ params }: { params: { userId: string } }) {
-  const [todos, setTodos] = useState<ToDo[]>([]);
+  const [todos, setTodos] = useRecoilState(toDoState);
+  //   const [todos, setTodos] = useState<ToDo[]>([]);
   const inputRef = useRef<HTMLInputElement>(null);
   const router = useRouter();
-  const { data: session, status } = useSession();
+  //   const { data: session, status } = useSession();
 
   useEffect(() => {
     inputRef.current?.focus();

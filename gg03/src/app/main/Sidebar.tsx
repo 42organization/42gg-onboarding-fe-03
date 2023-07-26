@@ -29,7 +29,6 @@ function SideBar() {
   //     }
   //   }, [status]);
 
-  console.log('***session', session?.user);
   const userId = session!.user!.id;
   return (
     <div className='side-bar'>

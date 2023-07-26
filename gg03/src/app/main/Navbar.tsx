@@ -1,16 +1,9 @@
 import Link from 'next/link';
 import { signIn, signOut, useSession } from 'next-auth/react';
-// import { useRecoilValue, useResetRecoilState } from 'recoil';
-// import loginState from '../atoms/loginAtom';
-// import userState from '../atoms/userAtom';
-import SignButton from './SignButton';
 import './Navbar.scss';
+import SignOutButton from './SignOutButton';
 
 function NavBar() {
-  //   const resetLoginState = useResetRecoilState(loginState);
-  //   const resetUserState = useResetRecoilState(userState);
-  //   const isLoggedIn = useRecoilValue(loginState);
-
   return (
     <header>
       <nav className='nav-bar'>
@@ -19,7 +12,7 @@ function NavBar() {
             <Link href='/'>HOME</Link>
           </li>
           <li>
-            <SignButton />
+            <SignOutButton />
           </li>
         </ul>
       </nav>

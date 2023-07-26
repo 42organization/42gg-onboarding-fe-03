@@ -1,3 +1,5 @@
+import { cookies } from 'next/headers';
+
 function ManagerPage() {
   return (
     <div>
