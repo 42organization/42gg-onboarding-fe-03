@@ -9,14 +9,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='ko'>
-      <body>
-        <RecoilRoot>
-          <SessionProvider>{children}</SessionProvider>
-        </RecoilRoot>
-      </body>
-    </html>
+    <RecoilRoot>
+      <SessionProvider>
+        <html lang='ko'>
+          <body>{children}</body>
+        </html>
+      </SessionProvider>
+    </RecoilRoot>
   );
 }
-
-// 기본 레이아웃
