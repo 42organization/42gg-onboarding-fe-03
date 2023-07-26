@@ -1,0 +1,14 @@
+$bg-color: #282c34;
+$light-grey: #b5c6df;
+$nav-color: #4f5879;
+$neon-blue: rgb(29, 238, 238);
+
+a {
+  display: flex;
+  justify-content: center;
+  color: $light-grey;
+  margin: 0 1rem;
+  &:hover {
+    color: $neon-blue;
+  }
+}
