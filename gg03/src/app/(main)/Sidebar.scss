@@ -1,0 +1,38 @@
+$light-grey: #b5c6df;
+$bg-color: #282c34;
+$dark-grey: #4f5879;
+$neon-blue: #7aedfc;
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  padding-top: 6rem;
+  align-items: center;
+  height: 100vh;
+  width: 5rem;
+  background-color: $light-grey;
+  color: $dark-grey;
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  li {
+    padding: 2rem 0;
+    color: $dark-grey;
+  }
+  a {
+    text-decoration: none;
+    font-size: 1rem;
+    color: $dark-grey;
+
+    &:hover,
+    &:active {
+      color: $neon-blue;
+    }
+  }
+}

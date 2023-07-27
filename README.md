@@ -1,25 +1,50 @@
 # 42gg 프론트엔드 온보딩 3단계
 
-## 공통 조건
+## 실행 방법
+```
+cd gg03
+npm install
+npm run dev
+```
 
-- 온보딩 프로젝트는 개인 계정으로 fork하여 진행하고 PR로 제출합니다.
-- git / github / code 컨벤션은 42gg notion에 있는 자료를 적극 반영합니다.
-- 기본 기능 외 추가 기능, 디자인 구현은 자유입니다.
-- 최종 제출품에는 README 작성이 되있어야 합니다.([예시](https://github.com/42organization/42gg.client/blob/main/README.md))
+## 구현된 기능
 
-## login + 유저 권한별 routing 후 해당 유저의 todo list 구현 (1, 2단계 융합)
+### 로그인 (/login)
+- next-auth.js로 구현
+- 42-school provider로 42 intra로 로그인 가능 (auth는 normal 부여)
+- credentials provider로 (src/app/UserInfo.ts)에 저장된 유저 정보와 일치하면 로그인
+- 로그인 성공 시 session.user 정보 받아서 localStorage에 저장
 
-- (필수) Next.js, Recoil, SCSS, Typescript
-- (필수) DON'T USE ANYSCRIPT, tslint 적용
-- (필수) custom hook 1개 이상 사용
-- (필수) axios
-- (선택) msw, react-query / SWR, pagination
-- (선택) 컴포넌트 재사용 고려
-- 세부 기능은 1단계와 2단계의 기능을 융합한 것입니다.
-- routing시 todo list 유지 안되도 됨 (mock API 한계)
+### 투두리스트(/todos/[username])
+- fake REST api 사용 (https://dummyjson.com/docs/todos)
+- 동적 라우팅으로 구현 -> username과 일치하는 유저의 data 받아옴
+- todo 추가, 삭제, 체크 가능
 
-## 참고
+### 권한 별 Routing
+- 상단 Navbar에서 메인 페이지 이동, 로그아웃 가능
+- Sidebar에는 권한 별로 접근 가능한 페이지 아이콘만 조회 가능
+- 로그인하지 않은 유저는 로그인 페이지만 조회 가능
+- 이미 로그인된 유저가 로그인 페이지 접속 시 메인 페이지로 이동
 
-- 유저 정보, todo list 정보는 1, 2단계에서 사용한 mock API 방식을 사용하셔도 되고 그 외 좋은 방법으로 구현하셔도 됩니다.
-- 1, 2단계에서 구현한 코드를 활용하셔도 됩니다.
-- 궁금한 사항은 issue에 등록해주세요.
+### 에러 페이지
+- 권한 없는 페이지, 존재하지 않는 URL 접근 시 에러
+
+### 폴더구조
+- Next.js v13 app router 사용
+```
+└── app
+    ├── (main)
+    │   ├── admin
+    │   ├── manager
+    │   ├── profile
+    │   │   └── [username]
+    │   └── todos
+    │       └── [usename]
+    ├── api
+    │   └── auth
+    │       └── [...nextauth]
+    ├── atoms
+    ├── hooks
+    ├── login
+    └── types
+```

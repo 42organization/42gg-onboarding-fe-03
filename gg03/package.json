@@ -1,0 +1,45 @@
+{
+  "name": "gg03",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@types/node": "20.4.2",
+    "@types/react": "18.2.15",
+    "@types/react-dom": "18.2.7",
+    "axios": "^1.4.0",
+    "eslint-config-next": "13.4.10",
+    "jsonwebtoken": "^9.0.1",
+    "msw": "^1.2.2",
+    "next": "13.4.10",
+    "next-auth": "^4.22.3",
+    "prettier": "^3.0.0",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "recoil": "^0.7.7",
+    "recoil-persist": "^5.1.0",
+    "sass": "^1.63.6"
+  },
+  "devDependencies": {
+    "@next/eslint-plugin-next": "^13.4.10",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.45.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard-with-typescript": "^36.1.0",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-n": "^16.0.1",
+    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "eslint-plugin-react": "^7.32.2",
+    "typescript": "^5.1.6"
+  }
+}
