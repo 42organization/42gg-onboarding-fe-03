@@ -2,7 +2,7 @@
 
 import { signOut } from 'next-auth/react';
 import { useResetRecoilState } from 'recoil';
-import userState from '../atoms/userAtom';
+import userState from '@/app/atoms/userAtom';
 
 function SignOutButton() {
   const resetUserState = useResetRecoilState(userState);

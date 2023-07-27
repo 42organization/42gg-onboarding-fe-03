@@ -1,5 +1,3 @@
-// import {faSquareCheck} from '@fortawesome/free-solid-svg-icons';
-
 $neon-blue: #7aedfc;
 $light-grey: #b5c6df;
 $button-color: hsl(207, 58%, 17%);
@@ -48,7 +46,7 @@ $input-color: #161d227d;
     align-items: center;
     position: relative;
     border-bottom: solid 1px $neon-blue;
-    width: 300px;
+    width: 500px;
     height: 35px;
     margin: 1rem;
     font-size: medium;
@@ -58,11 +56,11 @@ $input-color: #161d227d;
     list-style: none;
   }
 
-  .checked {
+  .completed {
     cursor: pointer;
     text-decoration: line-through;
   }
-  .non-checked {
+  .non-complited {
     cursor: pointer;
   }
 

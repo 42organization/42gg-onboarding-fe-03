@@ -1,7 +1,7 @@
 import NextAuth from 'next-auth';
 import FortyTwoProvider from 'next-auth/providers/42-school';
 import CredentialsProvider from 'next-auth/providers/credentials';
-import users from '../../../UserInfo';
+import users from '@/app/UserInfo';
 import User from '@/app/types/User';
 
 const handler = NextAuth({
@@ -23,13 +23,16 @@ const handler = NextAuth({
       async authorize(credentials) {
         const user = users.find(
           (user) =>
-            user.id === credentials?.username &&
-            user.pw === credentials?.password
+            user.username === credentials?.username &&
+            user.password === credentials?.password
         );
-        console.log(user);
-        console.log(credentials);
         if (user) {
-          return { id: user.id, name: user.name, auth: user.auth };
+          return {
+            id: user.id,
+            username: user.username,
+            name: user.name,
+            auth: user.auth,
+          };
         }
         return null;
       },
@@ -41,17 +44,14 @@ const handler = NextAuth({
   callbacks: {
     async jwt({ user, token }) {
       if (user) {
-        if (user.email) {
-          user.id = user.email.split('@')[0];
-        }
         token.user = user;
       }
-      console.log('token: ', token);
+      //   console.log('token: ', token);
       return token;
     },
     async session({ session, token }) {
       session.user = token.user as User;
-      console.log('session: ', session);
+      //   console.log('session: ', session);
       return session;
     },
   },

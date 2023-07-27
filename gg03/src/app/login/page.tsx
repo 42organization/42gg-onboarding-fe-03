@@ -1,11 +1,29 @@
 'use client';
 
-import { useRef, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
+import { useRef, useState, useEffect } from 'react';
+import { redirect, useRouter } from 'next/navigation';
+import { signIn, useSession } from 'next-auth/react';
+import { useRecoilValue } from 'recoil';
+import userState from '@/app/atoms/userAtom';
 import './LoginForm.scss';
 
 function LoginForm() {
+  // 로그인 되어있으면 redirect 필요함!! -> 아래는 로그인 안된 상태에서 에러 발생..
+  //   const { data: session, status } = useSession();
+  //   if (status === 'loading') {
+  //     return <div>loading...</div>;
+  //   }
+  //   if (session) {
+  //     redirect('/');
+  //   }
+  const userInfo = useRecoilValue(userState);
+
+  useEffect(() => {
+    if (userInfo.id !== -1) {
+      redirect('/');
+    }
+  }, [userInfo]);
+
   const usernameRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
   const [errorMessage, setErrorMessage] = useState<string>('');

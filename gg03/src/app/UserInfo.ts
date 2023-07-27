@@ -1,26 +1,30 @@
 const users = [
   {
-    id: 'hyobicho',
+    id: 1,
+    username: 'hyobicho',
     name: 'hyobicho',
-    pw: '1111',
+    password: '1111',
     auth: 'normal',
   },
   {
-    id: 'coffee',
+    id: 2,
+    username: 'coffee',
     name: 'coffee',
-    pw: '1111',
+    password: '1111',
     auth: 'normal',
   },
   {
-    id: 'manager1',
+    id: 3,
+    username: 'manager1',
     name: 'manager1',
-    pw: '1111',
+    password: '1111',
     auth: 'manager',
   },
   {
-    id: 'admin1',
+    id: 4,
+    username: 'admin1',
     name: 'admin1',
-    pw: '1111',
+    password: '1111',
     auth: 'admin',
   },
 ];

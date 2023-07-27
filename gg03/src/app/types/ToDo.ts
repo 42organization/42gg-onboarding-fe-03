@@ -1,7 +1,8 @@
 interface ToDo {
   id: number;
-  text: string;
-  checked: boolean;
+  todo: string;
+  completed: boolean;
+  userId: number;
 }
 
 export default ToDo;

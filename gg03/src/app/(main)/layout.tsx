@@ -12,7 +12,7 @@ function MainLayout({ children }: { children: React.ReactNode }) {
     },
   });
 
-  console.log('main session', session);
+  //   console.log('main session', session);
   if (status === 'loading') {
     return <div>loading...</div>;
   }

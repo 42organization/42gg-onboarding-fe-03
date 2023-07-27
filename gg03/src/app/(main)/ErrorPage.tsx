@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import '../ErrorPage.scss';
+import '@/app/ErrorPage.scss';
 
 function Error() {
   return (
