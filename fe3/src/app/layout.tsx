@@ -3,7 +3,6 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/navBar/navbar'
 import RecoilRootWrapper from '@/Wrapper/RecoilWrapper'
-// import Navbar from '@/component/navBar/navbar'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,6 +16,8 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // mockServer.listen();
+  console.log("init");
   return (
     <html lang="en">      
       <body className={inter.className}>

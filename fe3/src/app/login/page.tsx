@@ -32,7 +32,7 @@ export default function page({children}: {children: React.ReactNode}) {
     const checkpw = pw;
     setInProcess(true);
 
-    fetch(url)
+    fetch("http://localhost:9090/api/user")
       .then((response) => {
         if (!response.ok) {
           setInProcess(false);

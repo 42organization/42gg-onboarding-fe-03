@@ -3,12 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "mock": "npx tsx ./src/mocks/node.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "@mswjs/http-middleware": "^0.8.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
     "next": "13.5.6",
     "react": "^18",
     "react-dom": "^18",
