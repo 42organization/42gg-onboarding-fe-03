@@ -3,7 +3,12 @@ import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist();
 
-const loginState = atom<String | null>({
+interface loginStateInterface {
+  id: string,
+  role: string,
+};
+
+const loginState = atom<loginStateInterface | null>({
   key: 'isLoggedIn',
   default: null,
   effects_UNSTABLE: [persistAtom],

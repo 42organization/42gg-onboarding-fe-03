@@ -1,0 +1,36 @@
+{
+    "user": [
+        {
+            "id": "user",
+            "password": "1234",
+            "role": "user"
+        },
+        {
+            "id": "manager",
+            "password": "1234",
+            "role": "manager"
+        },
+        {
+            "id": "admin",
+            "password": "1234",
+            "role": "admin"
+        }
+    ],
+    "todo": [
+        {
+            "id": "user",
+            "todo": ["할일1", "할일2"],
+            "completed": [true, false]
+        },
+        {
+            "id": "manager",
+            "todo": ["할일1", "할일2"],
+            "completed": [true, false]
+        },
+        {
+            "id": "admin",
+            "todo": ["할일1", "할일2"],
+            "completed": [true, false]
+        }
+    ]
+  }

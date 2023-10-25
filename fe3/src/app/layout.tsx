@@ -16,8 +16,6 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  // mockServer.listen();
-  console.log("init");
   return (
     <html lang="en">      
       <body className={inter.className}>

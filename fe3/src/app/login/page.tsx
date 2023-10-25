@@ -5,7 +5,7 @@ import { useRecoilState } from 'recoil';
 import loginState from '@/Atom/loginState';
 import { useRouter } from 'next/navigation';
 
-const url = 'http://localhost:4000/user'; // 대상 URL
+const url = 'http://localhost:4000/'; // 대상 URL
 
 export default function page({children}: {children: React.ReactNode}) {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function page({children}: {children: React.ReactNode}) {
     const checkpw = pw;
     setInProcess(true);
 
-    fetch("http://localhost:9090/api/user")
+    fetch(url + "user")
       .then((response) => {
         if (!response.ok) {
           setInProcess(false);
@@ -43,15 +43,16 @@ export default function page({children}: {children: React.ReactNode}) {
       .then((data) => {
         for (let i = 0; i < data.length; ++i) {
           if (data[i].id === checkid && data[i].password === checkpw) {
-            localStorage.setItem('isLogin', 'true');
-            // setRole(data[i].role);
+            setIslogin({
+              id: checkid,
+              role: data[i].role
+            })
             logined = true;
             break;
           }
         }
         setInProcess(false);
-        // if (!logined) window.alert('해당 계정이 없습니다.');
-        // else navigate('/main');
+        router.push('/');
       })
       .catch((error) => {
         setInProcess(false);
@@ -63,14 +64,14 @@ export default function page({children}: {children: React.ReactNode}) {
     <div className="flex flex-col items-center mt-5">
       <div className="mb-2 text-2xl">This is Login Page</div>
       <input
-        className='p-4 mb-4 w-80'
+        className='p-4 mb-4 w-80 text-black'
         type="text"
         placeholder="ID"
         value={id}
         onChange={handleIdChange}
       />
       <input
-        className='p-4 mb-4 w-80'
+        className='p-4 mb-4 w-80 text-black'
         type="password"
         placeholder="Password"
         value={pw}
