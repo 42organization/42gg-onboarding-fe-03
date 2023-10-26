@@ -1,7 +1,4 @@
-'use client'
-import { todoStateInterface } from "@/Atom/todoState";
 import Todos from "./todos";
-import { GetServerSideProps } from "next";
 
 const url = 'http://localhost:4000/'; // 대상 URL
 
