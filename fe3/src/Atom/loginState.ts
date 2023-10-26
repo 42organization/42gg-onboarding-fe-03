@@ -3,7 +3,7 @@ import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist();
 
-interface loginStateInterface {
+export interface loginStateInterface {
   id: string,
   role: string,
 };

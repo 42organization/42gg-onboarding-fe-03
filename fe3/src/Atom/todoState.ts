@@ -3,7 +3,7 @@ import { recoilPersist } from 'recoil-persist';
 
 const { persistAtom } = recoilPersist();
 
-interface todoStateInterface {
+export interface todoStateInterface {
   todo: string[],
   completed: boolean[],
 };
