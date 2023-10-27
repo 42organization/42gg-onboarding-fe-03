@@ -93,13 +93,13 @@ const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
                         onChange={handleInput}
                         className="text-black flex-grow"
                     />
-                    <button type="submit" className="p-2">Add</button>
+                    <button type="submit" className="p-2">등록</button>
                 </form>
                 <ul className="list-none p-4 h-[800px] w-[400px] max-h-[800px] overflow-y-auto border border-gray-300">
                     {todoList.todo.map((todo, index) => (
                         <li key={index} className="flex w-full p-2 text-white  justify-between">
                             <div className="w-9/12">
-                                <span onClick={() =>handleComplete(index)} className={`whitespace-normal ${todoList.correct[index] ? 'hidden' : ''}`}>
+                                <span onClick={() =>handleComplete(index)} className={`whitespace-normal break-words ${todoList.correct[index] ? 'hidden' : ''}`}>
                                     {todo}
                                 </span>
                                 <input
