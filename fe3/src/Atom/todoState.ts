@@ -6,6 +6,7 @@ const { persistAtom } = recoilPersist();
 export interface todoStateInterface {
   todo: string[],
   completed: boolean[],
+  correct: boolean[],
 };
 
 const todoState = atom<todoStateInterface | null>({

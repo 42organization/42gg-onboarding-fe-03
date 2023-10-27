@@ -2,14 +2,13 @@
 import { todoStateInterface } from "@/Atom/todoState"
 import { useState } from "react";
 
-import { deleteTodo } from "./api";
 import { updateTodo } from "./api";
-
 
 const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
     const [todoList, setTodoList] = useState(todo);
     const [isPending, setIsPending] = useState(false);
     const [inputText, setInputText] = useState('');
+    const [correct, setCorrect] = useState(todo.todo);
 
     const handleInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputText(e.target.value);
@@ -21,10 +20,12 @@ const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
             "id" : id,
             "todo": [...todoList.todo, inputText],
             "completed": [...todoList.completed, false],
+            "correct": [...todoList.correct, false],
         };
         setIsPending(true);
         const res = updateTodo(id, next);
 
+        setCorrect(next.todo);
         setTodoList(next);
         setInputText('');
     }
@@ -36,6 +37,7 @@ const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
             "id" : id,
             "todo": [...todoList.todo],
             "completed": newCompleted,
+            "correct": [...todoList.correct]
         };
         setIsPending(true);
         const res = updateTodo(id, next);
@@ -47,12 +49,37 @@ const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
     const handleDelete = (idx: number) => {
         const next = {
             "id" : id,
-            "todo" : todoList.todo.slice(0, idx),
-            "completed" : todoList.completed.slice(0,idx)
+            "todo" : todoList.todo.filter((todo, index) => index !== idx),
+            "completed" : todoList.completed.filter((completed, index) => index !== idx),
+            "correct": todoList.correct.filter((correct, index) => index !== idx),
         };
         setIsPending(true);
         const res = updateTodo(id, next);
+        setCorrect(next.todo);
         setTodoList(next);
+    }
+
+    const handleCorrect = (idx: number) => {
+        const newTodo = todoList.todo;
+        const newCorrect = todoList.correct;
+        
+        newTodo[idx] = correct[idx];
+        newCorrect[idx] = !newCorrect[idx];
+        const next = {
+            "id" : id,
+            "todo" : newTodo,
+            "completed" : [...todoList.completed],
+            "correct": newCorrect
+        }
+
+        const res = updateTodo(id, next);
+        setTodoList(next);
+    }
+
+    const handleCorrectInput = (e:React.ChangeEvent<HTMLInputElement>, index:number) => {
+        const newCorrect = [...correct];
+        newCorrect[index] = e.target.value;
+        setCorrect(newCorrect);
     }
 
     return (
@@ -68,14 +95,23 @@ const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
                     />
                     <button type="submit" className="p-2">Add</button>
                 </form>
-                <ul className="list-none p-4 w-[400px] max-h-[800px] overflow-y-auto border border-gray-300">
+                <ul className="list-none p-4 h-[800px] w-[400px] max-h-[800px] overflow-y-auto border border-gray-300">
                     {todoList.todo.map((todo, index) => (
                         <li key={index} className="flex w-full p-2 text-white  justify-between">
-                            <div onClick={() =>handleComplete(index)} className="w-9/12">
-                                {todoList.completed[index] ? "completed" : todo}
+                            <div className="w-9/12">
+                                <span onClick={() =>handleComplete(index)} className={`whitespace-normal ${todoList.correct[index] ? 'hidden' : ''}`}>
+                                    {todo}
+                                </span>
+                                <input
+                                    type="text"
+                                    value={correct[index]}
+                                    onChange={(e) => handleCorrectInput(e, index)}
+                                    className={`text-black w-full ${!todoList.correct[index] ? 'hidden' : ''}`}
+                                >
+                                </input>
                             </div>
                             <div>
-                                <button onClick={() => handleDelete(index)} className="px-1">수정</button>
+                                <button onClick={() => handleCorrect(index)} className="px-1">{todoList.correct[index] ? "저장" : "수정"}</button>
                                 <button onClick={() => handleDelete(index)} className="px-1">삭제</button>
                             </div>
                         </li>

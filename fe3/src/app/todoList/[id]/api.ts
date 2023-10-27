@@ -34,5 +34,5 @@ export async function getTodo(id:string) {
         cache: 'no-store',
     });
     const data = await res.json();
-    return data.find((item: { id: string }) => item.id ===id) || null;
+    return data.find((item: { id: string }) => item.id ===id) || {"id": id, "todo":[], "completed":[], correct:[]};
   }

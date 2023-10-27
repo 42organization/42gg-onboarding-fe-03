@@ -19,14 +19,21 @@
   "todo": [
     {
       "id": "user",
-      "todo": [
-        "asd",
-        "asdasd"
-      ],
-      "completed": [
-        false,
-        true
-      ]
+      "todo": [],
+      "completed": [],
+      "correct": []
+    },
+    {
+      "id": "manager",
+      "todo": [],
+      "completed": [],
+      "correct": []
+    },
+    {
+      "id": "admin",
+      "todo": [],
+      "completed": [],
+      "correct": []
     }
   ]
 }
