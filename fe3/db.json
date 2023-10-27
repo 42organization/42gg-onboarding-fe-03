@@ -1,0 +1,32 @@
+{
+  "user": [
+    {
+      "id": "user",
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "id": "manager",
+      "password": "1234",
+      "role": "manager"
+    },
+    {
+      "id": "admin",
+      "password": "1234",
+      "role": "admin"
+    }
+  ],
+  "todo": [
+    {
+      "id": "user",
+      "todo": [
+        "asd",
+        "asdasd"
+      ],
+      "completed": [
+        false,
+        true
+      ]
+    }
+  ]
+}

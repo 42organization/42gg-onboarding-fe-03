@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "mock": "npx tsx ./src/mocks/node.ts",
+    "server": "json-server --watch db.json -p 4000",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

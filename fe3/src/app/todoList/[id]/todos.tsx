@@ -2,7 +2,11 @@
 import { todoStateInterface } from "@/Atom/todoState"
 import { useState } from "react";
 
-const Todos = ({ todo }: { todo: todoStateInterface }) => {
+import { deleteTodo } from "./api";
+import { updateTodo } from "./api";
+
+
+const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
     const [todoList, setTodoList] = useState(todo);
     const [isPending, setIsPending] = useState(false);
     const [inputText, setInputText] = useState('');
@@ -14,23 +18,41 @@ const Todos = ({ todo }: { todo: todoStateInterface }) => {
     const handleAdd: React.FormEventHandler<HTMLFormElement> = (e) => {
         e.preventDefault();
         const next = {
-            ...todoList,
+            "id" : id,
             "todo": [...todoList.todo, inputText],
             "completed": [...todoList.completed, false],
         };
         setIsPending(true);
-
-        fetch('http://localhost:4000/todo', {
-            method: 'PUT',
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(next),
-        }).then(() => {
-            console.log('new blog added');
-            setIsPending(false);
-        })
+        const res = updateTodo(id, next);
 
         setTodoList(next);
         setInputText('');
+    }
+
+    const handleComplete = (idx: number) => {
+        const newCompleted = [...todoList.completed];
+        newCompleted[idx] = !newCompleted[idx];
+        const next = {
+            "id" : id,
+            "todo": [...todoList.todo],
+            "completed": newCompleted,
+        };
+        setIsPending(true);
+        const res = updateTodo(id, next);
+
+        setTodoList(next);
+        setInputText('');
+    }
+
+    const handleDelete = (idx: number) => {
+        const next = {
+            "id" : id,
+            "todo" : todoList.todo.slice(0, idx),
+            "completed" : todoList.completed.slice(0,idx)
+        };
+        setIsPending(true);
+        const res = updateTodo(id, next);
+        setTodoList(next);
     }
 
     return (
@@ -49,12 +71,12 @@ const Todos = ({ todo }: { todo: todoStateInterface }) => {
                 <ul className="list-none p-4 w-[400px] max-h-[800px] overflow-y-auto border border-gray-300">
                     {todoList.todo.map((todo, index) => (
                         <li key={index} className="flex w-full p-2 text-white  justify-between">
-                            <div className="w-9/12">
+                            <div onClick={() =>handleComplete(index)} className="w-9/12">
                                 {todoList.completed[index] ? "completed" : todo}
                             </div>
                             <div>
-                                <button className="px-1">수정</button>
-                                <button className="px-1">삭제</button>
+                                <button onClick={() => handleDelete(index)} className="px-1">수정</button>
+                                <button onClick={() => handleDelete(index)} className="px-1">삭제</button>
                             </div>
                         </li>
                     ))}
