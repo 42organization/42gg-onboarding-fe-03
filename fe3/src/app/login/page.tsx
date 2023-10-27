@@ -52,7 +52,10 @@ export default function page({children}: {children: React.ReactNode}) {
           }
         }
         setInProcess(false);
-        router.push('/');
+        if (logined)
+          router.push('/');
+        else
+          window.alert("로그인 오류");
       })
       .catch((error) => {
         setInProcess(false);

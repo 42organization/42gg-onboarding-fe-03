@@ -55,9 +55,30 @@
     },
     {
       "id": "manager",
-      "todo": [],
-      "completed": [],
-      "correct": []
+      "todo": [
+        "asdfasdfasdf",
+        "aasdfasdfasdfasdf",
+        "cxzvzxcvzxcvzxcvasdfasd",
+        "asdfasdfasdfasdf",
+        "asdfasdf",
+        "asdfasdfasfsadfsdafsdafasdfsdafsdafsdafsdafsdafasdf"
+      ],
+      "completed": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "correct": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
     },
     {
       "id": "admin",
