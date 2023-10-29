@@ -99,7 +99,7 @@ const Todos = ({ todo, id }: { todo: todoStateInterface, id:string }) => {
                     {todoList.todo.map((todo, index) => (
                         <li key={index} className="flex w-full p-2 text-white  justify-between">
                             <div className="w-9/12">
-                                <span onClick={() =>handleComplete(index)} className={`whitespace-normal break-words ${todoList.correct[index] ? 'hidden' : ''}`}>
+                                <span onClick={() =>handleComplete(index)} className={`whitespace-normal break-words ${todoList.correct[index] ? 'hidden' : ''} ${todoList.completed[index] ? 'line-through' : '' }`}>
                                     {todo}
                                 </span>
                                 <input

@@ -1,4 +1,4 @@
-'use client';
+'use client'
 import React, { useEffect } from 'react';
 import Link from 'next/link'
 import { useLoginState } from '@/hooks/useLoginState';
@@ -11,6 +11,8 @@ const Navbar = () => {
   
   const handleLogout = () => {
     setLoginInfo(null);
+    document.cookie = "UID=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    document.cookie = "Urole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
     router.push('/');
   }
 
@@ -23,9 +25,11 @@ const Navbar = () => {
             <Link href='/login' className='p-2 text-xl'>Login</Link>
           }
         </>
-        <>
+        <div>
+          <Link href='/user' className='p-2 text-xl'>UserPage</Link>
+          {loginInfo?.role === "admin" ? <Link href='/admin' className='p-2 text-xl'>AdminPage</Link> : <></> }
           <Link href={'/todoList/' + loginInfo?.id} className='p-2 text-xl'>todoList</Link>
-        </>
+        </div>
       </div>
     </nav>
   );

@@ -16,6 +16,7 @@ export default function page({children}: {children: React.ReactNode}) {
   let logined = false;
 
   useEffect(() => {
+    console.log(isLogined);
     if (isLogined != null) router.push('/');
   });
 
@@ -47,6 +48,8 @@ export default function page({children}: {children: React.ReactNode}) {
               id: checkid,
               role: data[i].role
             })
+            document.cookie = 'UID=' + data[i].id;
+            document.cookie = 'Urole=' + data[i].role;
             logined = true;
             break;
           }

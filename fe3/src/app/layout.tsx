@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/navBar/navbar'
 import RecoilRootWrapper from '@/Wrapper/RecoilWrapper'
 
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -14,8 +15,9 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode,
 }) {
+
   return (
     <html lang="en">      
       <body className={inter.className}>
