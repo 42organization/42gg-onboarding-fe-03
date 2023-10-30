@@ -1,0 +1,66 @@
+{
+  "user": [
+    {
+      "id": "user",
+      "password": "1234",
+      "role": "user"
+    },
+    {
+      "id": "manager",
+      "password": "1234",
+      "role": "manager"
+    },
+    {
+      "id": "admin",
+      "password": "1234",
+      "role": "admin"
+    }
+  ],
+  "todo": [
+    {
+      "id": "user",
+      "todo": [
+        "This is User todo List"
+      ],
+      "completed": [
+        false
+      ],
+      "correct": [
+        false
+      ]
+    },
+    {
+      "id": "manager",
+      "todo": [
+        "asdfasdfasdf",
+        "aasdfasdfasdfasdf",
+        "cxzvzxcvzxcvzxcvasdfasd",
+        "asdfasdfasdfasdf",
+        "asdfasdf",
+        "asdfasdfasfsadfsdafsdafasdfsdafsdafsdafsdafsdafasdf"
+      ],
+      "completed": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "correct": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    {
+      "id": "admin",
+      "todo": [],
+      "completed": [],
+      "correct": []
+    }
+  ]
+}
