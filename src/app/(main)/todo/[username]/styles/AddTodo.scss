@@ -1,0 +1,27 @@
+@import "../../../../colors";
+
+#todo-form {
+  width: 100%;
+  max-width: 30rem;
+  display: flex;
+  justify-content: space-between;
+
+  input {
+    width: 80%;
+    padding: 10px;
+    border-radius: 10px;
+  }
+
+  button {
+    padding: 1rem;
+    background-color: $dark-blue;
+    border-radius: 10px;
+    border: none;
+    color: white;
+  }
+
+  button:hover {
+    background-color: $space-blue;
+    cursor: pointer;
+  }
+}

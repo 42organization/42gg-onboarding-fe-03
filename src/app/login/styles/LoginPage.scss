@@ -1,0 +1,62 @@
+@import "../../colors";
+
+.login-page {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+
+  h2 {
+    margin-bottom: 20px;
+    color: $neon-blue;
+  }
+
+  form {
+    min-width: 16rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .inputs-wrapper {
+      display: flex;
+      flex-direction: column;
+
+      .input-group {
+        min-width: 11.2rem;
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 1.3rem;
+        font-weight: 800;
+
+        input {
+          max-width: 13rem;
+          border-radius: 5px;
+          border: none;
+        }
+      }
+    }
+
+    button {
+      padding: 1rem;
+      background-color: $dark-blue;
+      color: white;
+      border: none;
+      cursor: pointer;
+      height: 4rem;
+      border-radius: 10px;
+      font-weight: 800;
+
+      &:hover {
+        background-color: $space-blue;
+      }
+    }
+  }
+
+  .error-message {
+    text-align: center;
+    color: rgb(255, 101, 101);
+    font-weight: 900;
+  }
+}
