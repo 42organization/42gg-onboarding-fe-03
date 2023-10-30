@@ -19,7 +19,8 @@ export default function TodoPage({ params }: { params: { username: string } }) {
 
         if (response.ok) {
           const data = await response.json();
-          setTodoList(data);
+          // ... 우와~!
+          setTodoList(data.todoList); // 감사합니다..
         } else {
           throw new Error("Server error");
         }
