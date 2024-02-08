@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from '../styles/login.module.css';
-import Loginform from '../component/loginform';
+import Loginform from '@/components/loginform';
 
 function login() {
   return (

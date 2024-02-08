@@ -137,7 +137,6 @@
   padding: 1rem 2rem;
   width: 100%;
   margin-top: 5%;
-  margin-left: 3%;
   /* transform: translate(-50%, 0); */
   font-weight: 700;
   background: rgb(255, 255, 255);
@@ -157,8 +156,6 @@
   border-left: 2px solid blueviolet;
   border-bottom: 2px solid rgb(238, 103, 238);
   border-right: 2px solid rgb(238, 103, 238);
-  box-shadow:
-    rgba(240, 46, 170, 0.4) 5px 5px,
-    rgba(240, 46, 170, 0.3) 10px 10px,
+  box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
     rgba(240, 46, 170, 0.2) 15px 15px;
 }
