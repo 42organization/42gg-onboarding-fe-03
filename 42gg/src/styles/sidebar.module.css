@@ -14,12 +14,11 @@
   margin-bottom: 30%;
 }
 
-ul {
+.ullist {
   margin: 0;
-  /* padding: 0; */
 }
 
-li {
+.lilist {
   padding: 10px;
   border-bottom: 1px solid #555; /* 메뉴 아이템 사이에 구분선 */
   cursor: pointer;
@@ -30,10 +29,10 @@ li {
 }
 
 .te {
-  margin-left: 10%;
+  margin-left: 40%;
 }
 
-ul li:hover {
+.ullist .lilist:hover {
   background-color: #c8c8c8; /* 호버 시 배경색 변경 */
   transition: background-color 0.3s ease; /* 부드러운 전환 효과 추가 */
 }

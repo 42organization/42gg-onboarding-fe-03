@@ -1,3 +1,4 @@
+// 'use client';
 import React from 'react';
 import styles from '../styles/login.module.css';
 import { useSetRecoilState } from 'recoil';
@@ -7,14 +8,15 @@ import users from '@/components/userinfo';
 
 function loginform() {
   const setAuthState = useSetRecoilState(authState);
-
+  const router = useRouter();
   function inputhandler(event) {
-    const router = useRouter();
+    console.log('here');
     event.preventDefault();
     const idSet = event.target[0].value;
     const pwSet = event.target[1].value;
 
     if (!idSet.length || !pwSet.length) {
+      console.log('here');
       alert('id 또는 pw를 확인해주세요');
       return;
     }
