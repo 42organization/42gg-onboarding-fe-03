@@ -28,13 +28,13 @@ function sidebar() {
               <span className={styles.te}>Lobby</span>
             </div>
           </li>
-          <li className={styles.lilist} onClick={() => moveToRoute('/page1')}>
+          <li className={styles.lilist} onClick={() => moveToRoute('/Page1')}>
             <div>
               <Image src={Checklist} />
               <span className={styles.te}>Page1</span>
             </div>
           </li>
-          <li className={styles.lilist} onClick={() => moveToRoute('/page2')}>
+          <li className={styles.lilist} onClick={() => moveToRoute('/Page2')}>
             <div>
               <Image src={Checklist} />
               <span className={styles.te}>Page2</span>
