@@ -1,6 +1,7 @@
 import React from 'react';
 import Navbar from '@/components/navbar';
 import Sidebar from '@/components/sidebar';
+import Todo from '@/components/todo';
 import { useRecoilValue } from 'recoil';
 import { authState } from '../atoms/authatoms';
 import { useEffect } from 'react';
@@ -24,6 +25,7 @@ function admin() {
     <div>
       <Navbar />
       <Sidebar />
+      <Todo />
     </div>
   );
 }

@@ -4,14 +4,14 @@ import styles from '@/styles/todo.module.css';
 function Todo() {
   const [todoItems, setTodoItems] = useState([]);
 
-  useEffect(() => {
-    loadTodoList();
-  }, []);
+  //   useEffect(() => {
+  //     loadTodoList();
+  //   }, []);
 
-  const loadTodoList = () => {
-    const storedItems = JSON.parse(localStorage.getItem('todoItems')) || [];
-    setTodoItems(storedItems);
-  };
+  //   const loadTodoList = () => {
+  //     const storedItems = JSON.parse(localStorage.getItem('todoItems')) || [];
+  //     setTodoItems(storedItems);
+  //   };
 
   const saveTodoList = (items) => {
     localStorage.setItem('todoItems', JSON.stringify(items));
@@ -99,59 +99,69 @@ function Todo() {
     toInput.value = '';
   };
 
-  const convertToPNG = (element, filename) => {
-    html2canvas(element).then((canvas) => {
-      const link = document.createElement('a');
-      link.href = canvas.toDataURL('image/png');
-      link.download = `${filename}.png`;
-      link.click();
-    });
-  };
+  //   const convertToPNG = (element, filename) => {
+  //     html2canvas(element).then((canvas) => {
+  //       const link = document.createElement('a');
+  //       link.href = canvas.toDataURL('image/png');
+  //       link.download = `${filename}.png`;
+  //       link.click();
+  //     });
+  //   };
 
-  const saveBtn = () => {
-    const contentContainer = document.querySelector('.contentcontainer');
-    const filename = 'contentcontainer_capture';
+  //   const saveBtn = () => {
+  //     const contentContainer = document.querySelector('.contentcontainer');
+  //     const filename = 'contentcontainer_capture';
 
-    convertToPNG(contentContainer, filename);
-  };
+  //     convertToPNG(contentContainer, filename);
+  //   };
 
   return (
-    <div className={styles.allcontainer}>
-      <div className={styles.contentcontainer}>
-        <span className={styles.title}>TodoList</span>
-        <button onClick={saveBtn} id='savebtn'>
-          Save
-        </button>
-        <div className={styles.inputandlist}>
-          <div className={styles.inputcontainer}>
-            <input id='toinput' type='text' placeholder='New Task' size='40' />
-            <button onClick={addBtn} className={styles.btn}>
-              +
-            </button>
-          </div>
-          <div className={styles.ulcontainer}>
-            <ul className={styles.ullist} id='tolist'>
-              {todoItems.map((item, index) => (
-                <li className={`${styles.lilist} ${styles.tolist}`} key={index}>
-                  <input type='checkbox' onChange={updateLocalStorage} />
-                  <span
-                    className={styles.deleteBtn}
-                    onClick={updateLocalStorage}
+    <div className={styles.back}>
+      <div className={styles.allcontainer}>
+        <div className={styles.contentcontainer}>
+          {/* <span className={styles.title}>TodoList</span> */}
+          {/* <button onClick={saveBtn} id='savebtn'>
+            Save
+          </button> */}
+          <div className={styles.inputandlist}>
+            <div className={styles.inputcontainer}>
+              <input
+                id='toinput'
+                type='text'
+                placeholder='New Task'
+                size='40'
+              />
+              <button onClick={addBtn} className={styles.btn}>
+                +
+              </button>
+            </div>
+            <div className={styles.ulcontainer}>
+              <ul className={styles.ullist} id='tolist'>
+                {todoItems.map((item, index) => (
+                  <li
+                    className={`${styles.lilist} ${styles.tolist}`}
+                    key={index}
                   >
-                    {' '}
-                    ❌
-                  </span>
-                  <span
-                    className={styles.changeBtn}
-                    onClick={updateLocalStorage}
-                  >
-                    {' '}
-                    change
-                  </span>
-                  <span className='text-block'>{item}</span>
-                </li>
-              ))}
-            </ul>
+                    <input type='checkbox' onChange={updateLocalStorage} />
+                    <span
+                      className={styles.deleteBtn}
+                      onClick={updateLocalStorage}
+                    >
+                      {' '}
+                      ❌
+                    </span>
+                    <span
+                      className={styles.changeBtn}
+                      onClick={updateLocalStorage}
+                    >
+                      {' '}
+                      change
+                    </span>
+                    <span className='text-block'>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
