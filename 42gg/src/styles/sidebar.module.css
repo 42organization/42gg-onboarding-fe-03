@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: #ffff;
+  height: 89vh;
+  max-width: 15%;
+  justify-items: center;
+}
+
+.title {
+  margin-left: 20%;
+  font-size: 4vh;
+  margin-top: 15%;
+  margin-bottom: 30%;
+}
+
+.ullist {
+  margin: 0;
+}
+
+.lilist {
+  padding: 10px;
+  border-bottom: 1px solid #555; /* 메뉴 아이템 사이에 구분선 */
+  cursor: pointer;
+  font-size: 3vh;
+  margin-bottom: 10%;
+  list-style-type: none;
+  justify-content: space-between;
+}
+
+.te {
+  margin-left: 40%;
+}
+
+.ullist .lilist:hover {
+  background-color: #c8c8c8; /* 호버 시 배경색 변경 */
+  transition: background-color 0.3s ease; /* 부드러운 전환 효과 추가 */
+}
