@@ -34,12 +34,6 @@ function sidebar() {
               <span className={styles.te}>Page1</span>
             </div>
           </li>
-          <li className={styles.lilist} onClick={() => moveToRoute('/Page2')}>
-            <div>
-              <Image src={Checklist} />
-              <span className={styles.te}>Page2</span>
-            </div>
-          </li>
           <li className={styles.lilist} onClick={() => moveToRoute('/Admin')}>
             <div>
               <Image src={Admin} />
