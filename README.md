@@ -1,22 +1,12 @@
 # 42gg 프론트엔드 온보딩 3단계
 
-## 공통 조건
+## EX01. [FE 코드 살펴보기](https://github.com/42organization/42gg.client)
 
-- 온보딩 프로젝트는 개인 계정으로 fork하여 진행하고 PR로 제출합니다.
-- git / github / code 컨벤션은 42gg notion에 있는 자료를 적극 반영합니다.
-- 기본 기능 외 추가 기능, 디자인 구현은 자유입니다.
-- 최종 제출품에는 README 작성이 되있어야 합니다.([예시](https://github.com/42organization/42gg.client/blob/main/README.md))
+각자 마음에 드는 GG의 페이지 1개를 잡아 읽고 서로에게 설명 및 개선점 이야기 나누기
 
-## login + 유저 권한별 routing 후 해당 유저의 todo list 구현 (1, 2단계 융합)
+---
 
-- (필수) Next.js (기본 - Page routing, 선택 - App routing), Recoil, SCSS, Typescript
-- (필수) **DON'T USE ANYSCRIPT**, tslint 적용
-- (필수) custom hook 1개 이상 사용
-- (필수) axios / react-query / SWR (선택) msw
-- (선택) tailwind CSS, twMerge, CVA (class variance authority)
-- (선택) Storybook, Test Code (React Testing Library, Cypress)
-- 세부 기능은 1단계와 2단계의 기능을 융합한 것입니다.
-- routing시 todo list 유지 안되도 됨 (mock API 한계)
+## 추가) 42GG 깃허브 이슈를 해결해보기
 
 ## 참고
 
